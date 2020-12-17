@@ -1,0 +1,176 @@
+<html>
+  <head>
+     <title>Guess the Picture Quiz!</title>
+     <script>
+
+      var score = 0;
+      var questionCount = 0;
+      var ans1 = "";
+      var ans2 = "";
+      var ans3 = "";
+      var ans4 = "";
+      var ans5 = "";
+      var table = "";
+
+
+      function gradeQuiz()
+      {
+        if(questionCount == 0)
+        {
+      document.getElementById('question').innerHTML = "<img src = 'Wolf.jpg'>";
+           //check if the user anwer is equal to something
+           ans1 = document.getElementById('answer').value;
+           //add one to score if it is correct
+           if(ans1 == 'wolf')
+           {
+           score = score + 1;
+             alert(score);
+           }
+          //add one questionCount to advance to the next question
+
+      document.getElementById('question').innerHTML = "<img src = 'Dog.jpg'>";
+        }
+
+
+        if(questionCount == 1)
+        {
+
+          ans2 = document.getElementById('answer').value;
+          if(ans2 == 'dog' )
+          {
+          score = score + 1
+            alert(score);
+          }
+
+          document.getElementById("question").innerHTML = "<img src = 'Lion.jpg'>";
+        }
+
+
+
+        if(questionCount == 2)
+        {
+           ans3 = document.getElementById('answer').value;
+          if(ans3 == 'lion')
+          {
+            score = score + 1
+            alert(score);
+          }
+          document.getElementById("question").innerHTML = "<img src = 'Penguin.jpg'>";
+        }
+
+
+          if(questionCount == 3)
+          {
+
+             ans4 = document.getElementById('answer').value;
+            if(ans4 == 'penguin')
+            {
+            score = score + 1
+              alert(score);
+            }
+
+            document.getElementById("question").innerHTML = "<img src = 'Kangaroo.jpg'>";
+          }
+
+
+          if(questionCount == 4)
+          {
+
+             ans5 = document.getElementById('answer').value;
+            if(ans5 == 'kangaroo')
+            {
+            score = score + 1
+              alert(score);
+            }
+            document.getElementById('OnceMore').style.visibility = "visible";
+
+          end();
+        }
+
+        questionCount = questionCount + 1;
+      }
+
+
+       function end()
+       {
+
+
+              document.getElementById('button').style.visibility = "hidden";
+              document.getElementById('answer').style.visibility = "hidden";
+              document.getElementById('question').style.visibility = "hidden";
+            table = table + "RESULTS : " + score + "/5<br>";
+            table = table + "YOUR ANSWER = " + ans1 + " - -  CORRECT ANSWER = wolf" + "<br>";
+            table = table + "YOUR ANSWER = " + ans2 + " - -  CORRECT ANSWER = dog" + "<br>";
+            table = table + "YOUR ANSWER = " + ans3 + " - -  CORRECT ANSWER = lion" + "<br>";
+            table = table + "YOUR ANSWER = " + ans4 + " - -  CORRECT ANSWER = penguin" + "<br>";
+            table = table + "YOUR ANSWER = " + ans5 + " - -  CORRECT ANSWER = kangaroo" + "<br>";
+            document.getElementById("explain").innerHTML = table;
+             }
+
+             function Reset()
+             {
+               table = "";
+               score = 0;
+               questionCount = 0
+               document.getElementById('question').innerHTML = "<img src = 'Wolf.jpg'>";
+               document.getElementById('OnceMore').style.visibility = "hidden";
+               document.getElementById('button').style.visibility = "visible";
+               document.getElementById('answer').style.visibility = "visible";
+               document.getElementById('question').style.visibility = "visible";
+               document.getElementById("explain").innerHTML = "";
+
+             }
+           function hide()
+           {
+             document.getElementById('OnceMore').style.visibility = "hidden";
+
+           }
+
+
+        </script>
+
+              <style>
+                body {
+                  background-color: darkorange;
+                }
+                h2{
+                  font-family: cursive;
+                  color: teal;
+                }
+                h2:hover{
+                color: green;
+                }
+                #button {
+                  color: lightseagreen;
+                }
+
+                p{
+                  font-family: fantasy;
+                  font-size: 23px;
+                  color: blue;
+                }
+                img {
+                  width: 200px;
+                  length: 100px;
+                }
+
+
+                </style>
+             </head>
+
+             <body onload = "hide()">
+               <h2>Guess the Picture Quiz!</h2>
+               <p>Answer in lower case letters</p>
+               <span id = "question"><img src = "Wolf.jpg"></span>
+               <span id = "pics">
+               <input type = "text" id = "answer">
+               <input type = "button" value = "Submit Answer" onclick = "gradeQuiz()" id = "button">
+               <br>
+               <center>
+               <input type = 'button' value = 'Play Again?' onclick = 'Reset()' id = 'OnceMore'>
+             </center>
+                <!--Hide or Reveal Stuff???-->
+                <span id = "score"></span><!--hidden at beginning maybe??-->
+                <span id = "explain"></span>
+             </body>
+           </html>
